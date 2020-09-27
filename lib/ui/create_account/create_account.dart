@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:loginkit/components/rounded_btn/rounded_btn.dart';
-import 'package:loginkit/ui/login/login.dart';
-import 'package:loginkit/ui/success/success.dart';
+import 'package:flutter_appwrite_demo/components/rounded_btn/rounded_btn.dart';
+import 'package:flutter_appwrite_demo/ui/login/login.dart';
+import 'package:flutter_appwrite_demo/ui/success/success.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -13,7 +12,7 @@ class CreateAccount extends StatefulWidget {
 
 class _CreateAccountState extends State<CreateAccount> {
   bool showSpinner = false;
-  final _auth = FirebaseAuth.instance;
+  //final _auth = FirebaseAuth.instance;
   String email;
   String password;
 
@@ -25,7 +24,7 @@ class _CreateAccountState extends State<CreateAccount> {
         resizeToAvoidBottomPadding: true,
         appBar: AppBar(
           elevation: 0,
-            leading: _goBackButton(context),
+          leading: _goBackButton(context),
           backgroundColor: Color(0xff251F34),
         ),
         backgroundColor: Color(0xff251F34),
@@ -36,21 +35,23 @@ class _CreateAccountState extends State<CreateAccount> {
             children: [
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
-                child: Text('Create Account',
+                child: Text(
+                  'Create Account',
                   style: TextStyle(
                       color: Colors.white,
                       fontWeight: FontWeight.w600,
-                      fontSize: 25
-                  ),),
+                      fontSize: 25),
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                child: Text('Please fill the input below.',
+                child: Text(
+                  'Please fill the input below.',
                   style: TextStyle(
                       color: Colors.grey[600],
                       fontWeight: FontWeight.w400,
-                      fontSize: 14
-                  ),),
+                      fontSize: 14),
+                ),
               ),
               Container(
                 margin: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -59,16 +60,17 @@ class _CreateAccountState extends State<CreateAccount> {
                   children: <Widget>[
                     Text(
                       'E-mail',
-                      style: TextStyle(fontWeight: FontWeight.w300, fontSize: 13, color: Colors.white),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 13,
+                          color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     TextField(
                       style: (TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400
-                      )),
+                          color: Colors.white, fontWeight: FontWeight.w400)),
                       keyboardType: TextInputType.emailAddress,
                       obscureText: false,
                       cursorColor: Colors.white,
@@ -78,10 +80,11 @@ class _CreateAccountState extends State<CreateAccount> {
                         filled: true,
                         prefixIcon: Image.asset('images/icon_email.png'),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff14DAE2), width: 2.0),
+                          borderSide:
+                              BorderSide(color: Color(0xff14DAE2), width: 2.0),
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                        ),
                       ),
-                    ),
                       onChanged: (value) {
                         email = value;
                       },
@@ -96,16 +99,17 @@ class _CreateAccountState extends State<CreateAccount> {
                   children: <Widget>[
                     Text(
                       'Password',
-                      style: TextStyle(fontWeight: FontWeight.w300, fontSize: 13, color: Colors.white),
+                      style: TextStyle(
+                          fontWeight: FontWeight.w300,
+                          fontSize: 13,
+                          color: Colors.white),
                     ),
                     SizedBox(
                       height: 10,
                     ),
                     TextField(
                       style: (TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.w400
-                      )),
+                          color: Colors.white, fontWeight: FontWeight.w400)),
                       obscureText: true,
                       cursorColor: Colors.white,
                       decoration: InputDecoration(
@@ -114,7 +118,8 @@ class _CreateAccountState extends State<CreateAccount> {
                         filled: true,
                         prefixIcon: Image.asset('images/icon_lock.png'),
                         focusedBorder: OutlineInputBorder(
-                          borderSide: BorderSide(color: Color(0xff14DAE2), width: 2.0),
+                          borderSide:
+                              BorderSide(color: Color(0xff14DAE2), width: 2.0),
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         ),
                       ),
@@ -135,10 +140,10 @@ class _CreateAccountState extends State<CreateAccount> {
                       setState(() {
                         showSpinner = true;
                       });
-                      try {
+                      /*try {
                         final newUser =
-                        await _auth.createUserWithEmailAndPassword(
-                            email: email, password: password);
+                            await _auth.createUserWithEmailAndPassword(
+                                email: email, password: password);
                         if (newUser != null) {
                           Navigator.push(
                               context,
@@ -151,7 +156,7 @@ class _CreateAccountState extends State<CreateAccount> {
                         });
                       } catch (e) {
                         print(e);
-                      }
+                      }*/
                       // Add login code
                     },
                   ),
@@ -163,22 +168,20 @@ class _CreateAccountState extends State<CreateAccount> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text('Already have an account?',
+                  Text(
+                    'Already have an account?',
                     style: TextStyle(
-                        color: Colors.grey[600],
-                        fontWeight: FontWeight.w400
-                    ),),
+                        color: Colors.grey[600], fontWeight: FontWeight.w400),
+                  ),
                   FlatButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => Login()));
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Login()));
                     },
                     child: Text('Sign in',
                         style: TextStyle(
-                          color: Color(0xff14DAE2),)
-                    ),
+                          color: Color(0xff14DAE2),
+                        )),
                   )
                 ],
               )

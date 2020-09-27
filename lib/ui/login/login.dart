@@ -1,11 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:loginkit/components/rounded_btn/rounded_btn.dart';
-import 'package:loginkit/ui/create_account/create_account.dart';
-import 'package:loginkit/ui/success/success.dart';
+import 'package:flutter_appwrite_demo/components/rounded_btn/rounded_btn.dart';
+import 'package:flutter_appwrite_demo/ui/create_account/create_account.dart';
+import 'package:flutter_appwrite_demo/ui/success/success.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class Login extends StatefulWidget {
@@ -15,10 +14,9 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool showSpinner = false;
-  final _auth = FirebaseAuth.instance;
+  //final _auth = FirebaseAuth.instance;
   String email;
   String password;
-
 
   @override
   Widget build(BuildContext context) {
@@ -35,30 +33,29 @@ class _LoginState extends State<Login> {
               children: [
                 Center(
                   child: SizedBox(
-                    width: 175,
-                    height: 175,
-                    child: SvgPicture.asset('images/login.svg')
-                  ),
+                      width: 175,
+                      height: 175,
+                      child: SvgPicture.asset('images/login.svg')),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 15, 20, 8),
-                  child: Text('Login',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 20
-                  ),
+                  child: Text(
+                    'Login',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20),
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: Text('Please sign in to continue.',
-                      style: TextStyle(
-                      color: Colors.grey[600],
-                      fontWeight: FontWeight.w400,
-                      fontSize: 13
+                  child: Text(
+                    'Please sign in to continue.',
+                    style: TextStyle(
+                        color: Colors.grey[600],
+                        fontWeight: FontWeight.w400,
+                        fontSize: 13),
                   ),
-        ),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
@@ -69,29 +66,33 @@ class _LoginState extends State<Login> {
                       children: <Widget>[
                         Text(
                           'E-mail',
-                          style: TextStyle(fontWeight: FontWeight.w300, fontSize: 13, color: Colors.white),
+                          style: TextStyle(
+                              fontWeight: FontWeight.w300,
+                              fontSize: 13,
+                              color: Colors.white),
                         ),
                         SizedBox(
                           height: 10,
                         ),
                         TextField(
                           style: (TextStyle(
-                           color: Colors.white,
-                           fontWeight: FontWeight.w400
-                          )),
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400)),
                           keyboardType: TextInputType.emailAddress,
-                            cursorColor: Colors.white,
-                            obscureText: false,
-                            decoration: InputDecoration(
-                                border: InputBorder.none,
-                                fillColor: Color(0xfff3B324E),
-                                filled: true,
+                          cursorColor: Colors.white,
+                          obscureText: false,
+                          decoration: InputDecoration(
+                            border: InputBorder.none,
+                            fillColor: Color(0xfff3B324E),
+                            filled: true,
                             prefixIcon: Image.asset('images/icon_email.png'),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(color: Color(0xff14DAE2), width: 2.0),
-                                borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                              ),
-                        ),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: Color(0xff14DAE2), width: 2.0),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(20.0)),
+                            ),
+                          ),
                           onChanged: (value) {
                             email = value;
                           },
@@ -107,16 +108,17 @@ class _LoginState extends State<Login> {
                     children: <Widget>[
                       Text(
                         'Password',
-                        style: TextStyle(fontWeight: FontWeight.w300, fontSize: 13, color: Colors.white),
+                        style: TextStyle(
+                            fontWeight: FontWeight.w300,
+                            fontSize: 13,
+                            color: Colors.white),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       TextField(
                         style: (TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400
-                        )),
+                            color: Colors.white, fontWeight: FontWeight.w400)),
                         obscureText: true,
                         cursorColor: Colors.white,
                         decoration: InputDecoration(
@@ -125,8 +127,10 @@ class _LoginState extends State<Login> {
                           filled: true,
                           prefixIcon: Image.asset('images/icon_lock.png'),
                           focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(color: Color(0xff14DAE2), width: 2.0),
-                            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+                            borderSide: BorderSide(
+                                color: Color(0xff14DAE2), width: 2.0),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(20.0)),
                           ),
                         ),
                         onChanged: (value) {
@@ -147,7 +151,7 @@ class _LoginState extends State<Login> {
                         setState(() {
                           showSpinner = true;
                         });
-                        try {
+                        /*try {
                           final user = await _auth.signInWithEmailAndPassword(
                               email: email, password: password);
                           if (user != null) {
@@ -161,16 +165,15 @@ class _LoginState extends State<Login> {
                           });
                         } catch (e) {
                           print(e);
-                        }
+                        }*/
                       },
                     ),
                   ),
                 ),
                 Center(
-                  child: Text('Forgot Password?',
-                  style: TextStyle(
-                    color: Color(0xff14DAE2)
-                  ),
+                  child: Text(
+                    'Forgot Password?',
+                    style: TextStyle(color: Color(0xff14DAE2)),
                   ),
                 ),
                 SizedBox(
@@ -179,11 +182,11 @@ class _LoginState extends State<Login> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Dont have an account?',
+                    Text(
+                      'Dont have an account?',
                       style: TextStyle(
-                          color: Colors.grey[600],
-                          fontWeight: FontWeight.w400
-                      ),),
+                          color: Colors.grey[600], fontWeight: FontWeight.w400),
+                    ),
                     FlatButton(
                       onPressed: () {
                         Navigator.push(
@@ -192,9 +195,9 @@ class _LoginState extends State<Login> {
                                 builder: (context) => CreateAccount()));
                       },
                       child: Text('Sign up',
-                        style: TextStyle(
-                            color: Color(0xff14DAE2),)
-                      ),
+                          style: TextStyle(
+                            color: Color(0xff14DAE2),
+                          )),
                     )
                   ],
                 )

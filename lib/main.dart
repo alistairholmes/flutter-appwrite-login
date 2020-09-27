@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:loginkit/ui/login/login.dart';
+import 'package:flutter_appwrite_demo/ui/login/login.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,10 +11,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-        fontFamily: 'Poppins'
-      ),
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          fontFamily: 'Poppins'),
       debugShowCheckedModeBanner: false,
       home: Login(),
     );
