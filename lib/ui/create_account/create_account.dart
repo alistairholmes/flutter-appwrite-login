@@ -1,8 +1,10 @@
+import 'package:appwrite/appwrite.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_appwrite_demo/components/rounded_btn/rounded_btn.dart';
 import 'package:flutter_appwrite_demo/ui/login/login.dart';
 import 'package:flutter_appwrite_demo/ui/success/success.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
 class CreateAccount extends StatefulWidget {
@@ -11,6 +13,8 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
+  Client client = Client();
+  Account account;
   bool showSpinner = false;
   //final _auth = FirebaseAuth.instance;
   String email;
@@ -19,26 +23,32 @@ class _CreateAccountState extends State<CreateAccount> {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
+      color: Color(0xfff02e65),
       inAsyncCall: showSpinner,
       child: Scaffold(
         resizeToAvoidBottomPadding: true,
         appBar: AppBar(
           elevation: 0,
-          leading: _goBackButton(context),
-          backgroundColor: Color(0xff251F34),
+          backgroundColor: Color(0xffffffff),
         ),
-        backgroundColor: Color(0xff251F34),
+        backgroundColor: Color(0xffffffff),
         body: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              Center(
+                child: SizedBox(
+                    width: 175,
+                    height: 100,
+                    child: SvgPicture.asset('images/welcome.svg')),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 20, 8),
                 child: Text(
                   'Create Account',
                   style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.grey[600],
                       fontWeight: FontWeight.w600,
                       fontSize: 25),
                 ),
@@ -63,7 +73,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       style: TextStyle(
                           fontWeight: FontWeight.w300,
                           fontSize: 13,
-                          color: Colors.white),
+                          color: Colors.grey[600]),
                     ),
                     SizedBox(
                       height: 10,
@@ -76,12 +86,12 @@ class _CreateAccountState extends State<CreateAccount> {
                       cursorColor: Colors.white,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        fillColor: Color(0xfff3B324E),
+                        fillColor: Colors.grey[300],
                         filled: true,
-                        prefixIcon: Image.asset('images/icon_email.png'),
+                        prefixIcon: Icon(Icons.email),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: Color(0xff14DAE2), width: 2.0),
+                              BorderSide(color: Color(0xfff02e65), width: 2.0),
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         ),
                       ),
@@ -102,7 +112,7 @@ class _CreateAccountState extends State<CreateAccount> {
                       style: TextStyle(
                           fontWeight: FontWeight.w300,
                           fontSize: 13,
-                          color: Colors.white),
+                          color: Colors.grey[600]),
                     ),
                     SizedBox(
                       height: 10,
@@ -114,12 +124,12 @@ class _CreateAccountState extends State<CreateAccount> {
                       cursorColor: Colors.white,
                       decoration: InputDecoration(
                         border: InputBorder.none,
-                        fillColor: Color(0xfff3B324E),
+                        fillColor: Colors.grey[300],
                         filled: true,
-                        prefixIcon: Image.asset('images/icon_lock.png'),
+                        prefixIcon: Icon(Icons.lock_outline),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
-                              BorderSide(color: Color(0xff14DAE2), width: 2.0),
+                              BorderSide(color: Color(0xfff02e65), width: 2.0),
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         ),
                       ),
@@ -135,7 +145,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 child: Center(
                   child: RoundedButton(
                     btnText: 'SIGN UP',
-                    color: Color(0xff14DAE2),
+                    color: Color(0xfff02e65),
                     onPressed: () async {
                       setState(() {
                         showSpinner = true;
@@ -163,7 +173,7 @@ class _CreateAccountState extends State<CreateAccount> {
                 ),
               ),
               SizedBox(
-                height: 100,
+                height: 50,
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -180,7 +190,7 @@ class _CreateAccountState extends State<CreateAccount> {
                     },
                     child: Text('Sign in',
                         style: TextStyle(
-                          color: Color(0xff14DAE2),
+                          color: Color(0xfff02e65),
                         )),
                   )
                 ],
@@ -191,12 +201,4 @@ class _CreateAccountState extends State<CreateAccount> {
       ),
     );
   }
-}
-
-Widget _goBackButton(BuildContext context) {
-  return IconButton(
-      icon: Icon(Icons.arrow_back, color: Colors.grey[350]),
-      onPressed: () {
-        Navigator.of(context).pop(true);
-      });
 }

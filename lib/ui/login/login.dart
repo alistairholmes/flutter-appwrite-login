@@ -21,11 +21,12 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return ModalProgressHUD(
+      color: Color(0xfff02e65),
       inAsyncCall: showSpinner,
       child: SafeArea(
         child: Scaffold(
           resizeToAvoidBottomPadding: true,
-          backgroundColor: Color(0xff251F34),
+          backgroundColor: Color(0xffFFFFFF),
           body: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -35,14 +36,14 @@ class _LoginState extends State<Login> {
                   child: SizedBox(
                       width: 175,
                       height: 175,
-                      child: SvgPicture.asset('images/login.svg')),
+                      child: SvgPicture.asset('images/welcome.svg')),
                 ),
                 Padding(
                   padding: const EdgeInsets.fromLTRB(20, 15, 20, 8),
                   child: Text(
                     'Login',
                     style: TextStyle(
-                        color: Colors.white,
+                        color: Colors.grey[600],
                         fontWeight: FontWeight.w600,
                         fontSize: 20),
                   ),
@@ -69,7 +70,7 @@ class _LoginState extends State<Login> {
                           style: TextStyle(
                               fontWeight: FontWeight.w300,
                               fontSize: 13,
-                              color: Colors.white),
+                              color: Colors.grey[600]),
                         ),
                         SizedBox(
                           height: 10,
@@ -83,12 +84,12 @@ class _LoginState extends State<Login> {
                           obscureText: false,
                           decoration: InputDecoration(
                             border: InputBorder.none,
-                            fillColor: Color(0xfff3B324E),
+                            fillColor: Colors.grey[300],
                             filled: true,
-                            prefixIcon: Image.asset('images/icon_email.png'),
+                            prefixIcon: Icon(Icons.email),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
-                                  color: Color(0xff14DAE2), width: 2.0),
+                                  color: Color(0xfff02e65), width: 2.0),
                               borderRadius:
                                   BorderRadius.all(Radius.circular(20.0)),
                             ),
@@ -111,7 +112,7 @@ class _LoginState extends State<Login> {
                         style: TextStyle(
                             fontWeight: FontWeight.w300,
                             fontSize: 13,
-                            color: Colors.white),
+                            color: Colors.grey[600]),
                       ),
                       SizedBox(
                         height: 10,
@@ -123,12 +124,12 @@ class _LoginState extends State<Login> {
                         cursorColor: Colors.white,
                         decoration: InputDecoration(
                           border: InputBorder.none,
-                          fillColor: Color(0xfff3B324E),
+                          fillColor: Colors.grey[300],
                           filled: true,
-                          prefixIcon: Image.asset('images/icon_lock.png'),
+                          prefixIcon: Icon(Icons.lock_outline),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: Color(0xff14DAE2), width: 2.0),
+                                color: Color(0xfff02e65), width: 2.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(20.0)),
                           ),
@@ -145,7 +146,7 @@ class _LoginState extends State<Login> {
                   child: Center(
                     child: RoundedButton(
                       btnText: 'LOGIN',
-                      color: Color(0xff14DAE2),
+                      color: Color(0xfff02e65),
                       onPressed: () async {
                         // Add login code
                         setState(() {
@@ -173,7 +174,7 @@ class _LoginState extends State<Login> {
                 Center(
                   child: Text(
                     'Forgot Password?',
-                    style: TextStyle(color: Color(0xff14DAE2)),
+                    style: TextStyle(color: Color(0xfff02e65)),
                   ),
                 ),
                 SizedBox(
@@ -196,7 +197,7 @@ class _LoginState extends State<Login> {
                       },
                       child: Text('Sign up',
                           style: TextStyle(
-                            color: Color(0xff14DAE2),
+                            color: Color(0xfff02e65),
                           )),
                     )
                   ],
