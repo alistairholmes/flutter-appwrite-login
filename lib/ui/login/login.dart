@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:flutter_appwrite_demo/utils/auth/auth_state.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_appwrite_demo/components/rounded_btn/rounded_btn.dart';
 import 'package:flutter_appwrite_demo/ui/create_account/create_account.dart';
 import 'package:flutter_appwrite_demo/ui/success/success.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:provider/provider.dart';
 
 class Login extends StatefulWidget {
   @override
@@ -14,7 +16,6 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   bool showSpinner = false;
-  //final _auth = FirebaseAuth.instance;
   String email;
   String password;
 
@@ -76,17 +77,23 @@ class _LoginState extends State<Login> {
                           height: 10,
                         ),
                         TextField(
+                          onChanged: (value) {
+                            email = value;
+                          },
                           style: (TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontWeight: FontWeight.w400)),
                           keyboardType: TextInputType.emailAddress,
-                          cursorColor: Colors.white,
+                          cursorColor: Color(0xfff02e65),
                           obscureText: false,
                           decoration: InputDecoration(
                             border: InputBorder.none,
                             fillColor: Colors.grey[300],
                             filled: true,
-                            prefixIcon: Icon(Icons.email),
+                            prefixIcon: Icon(
+                              Icons.email,
+                              color: Colors.grey[500],
+                            ),
                             focusedBorder: OutlineInputBorder(
                               borderSide: BorderSide(
                                   color: Color(0xfff02e65), width: 2.0),
@@ -94,9 +101,6 @@ class _LoginState extends State<Login> {
                                   BorderRadius.all(Radius.circular(20.0)),
                             ),
                           ),
-                          onChanged: (value) {
-                            email = value;
-                          },
                         ),
                       ],
                     ),
@@ -118,15 +122,21 @@ class _LoginState extends State<Login> {
                         height: 10,
                       ),
                       TextField(
+                        onChanged: (value) {
+                          password = value;
+                        },
                         style: (TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.w400)),
+                            color: Colors.black, fontWeight: FontWeight.w400)),
                         obscureText: true,
-                        cursorColor: Colors.white,
+                        cursorColor: Color(0xfff02e65),
                         decoration: InputDecoration(
                           border: InputBorder.none,
                           fillColor: Colors.grey[300],
                           filled: true,
-                          prefixIcon: Icon(Icons.lock_outline),
+                          prefixIcon: Icon(
+                            Icons.lock_outline,
+                            color: Colors.grey[500],
+                          ),
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color: Color(0xfff02e65), width: 2.0),
@@ -134,9 +144,6 @@ class _LoginState extends State<Login> {
                                 BorderRadius.all(Radius.circular(20.0)),
                           ),
                         ),
-                        onChanged: (value) {
-                          password = value;
-                        },
                       ),
                     ],
                   ),
@@ -152,10 +159,11 @@ class _LoginState extends State<Login> {
                         setState(() {
                           showSpinner = true;
                         });
-                        /*try {
-                          final user = await _auth.signInWithEmailAndPassword(
-                              email: email, password: password);
-                          if (user != null) {
+                        try {
+                          AuthState state =
+                              Provider.of<AuthState>(context, listen: false);
+                          state.login(email, password);
+                          if (state != null) {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
@@ -166,7 +174,7 @@ class _LoginState extends State<Login> {
                           });
                         } catch (e) {
                           print(e);
-                        }*/
+                        }
                       },
                     ),
                   ),

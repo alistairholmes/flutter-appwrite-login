@@ -4,8 +4,10 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter_appwrite_demo/components/rounded_btn/rounded_btn.dart';
 import 'package:flutter_appwrite_demo/ui/login/login.dart';
 import 'package:flutter_appwrite_demo/ui/success/success.dart';
+import 'package:flutter_appwrite_demo/utils/auth/auth_state.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:provider/provider.dart';
 
 class CreateAccount extends StatefulWidget {
   @override
@@ -13,10 +15,7 @@ class CreateAccount extends StatefulWidget {
 }
 
 class _CreateAccountState extends State<CreateAccount> {
-  Client client = Client();
-  Account account;
   bool showSpinner = false;
-  //final _auth = FirebaseAuth.instance;
   String email;
   String password;
 
@@ -79,25 +78,25 @@ class _CreateAccountState extends State<CreateAccount> {
                       height: 10,
                     ),
                     TextField(
+                      onChanged: (value) {
+                        email = value;
+                      },
                       style: (TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.w400)),
+                          color: Colors.black, fontWeight: FontWeight.w400)),
                       keyboardType: TextInputType.emailAddress,
                       obscureText: false,
-                      cursorColor: Colors.white,
+                      cursorColor: Color(0xfff02e65),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         fillColor: Colors.grey[300],
                         filled: true,
-                        prefixIcon: Icon(Icons.email),
+                        prefixIcon: Icon(Icons.email, color: Colors.grey[500]),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Color(0xfff02e65), width: 2.0),
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         ),
                       ),
-                      onChanged: (value) {
-                        email = value;
-                      },
                     ),
                   ],
                 ),
@@ -118,24 +117,25 @@ class _CreateAccountState extends State<CreateAccount> {
                       height: 10,
                     ),
                     TextField(
+                      onChanged: (value) {
+                        password = value;
+                      },
                       style: (TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.w400)),
+                          color: Colors.black, fontWeight: FontWeight.w400)),
                       obscureText: true,
-                      cursorColor: Colors.white,
+                      cursorColor: Color(0xfff02e65),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         fillColor: Colors.grey[300],
                         filled: true,
-                        prefixIcon: Icon(Icons.lock_outline),
+                        prefixIcon:
+                            Icon(Icons.lock_outline, color: Colors.grey[500]),
                         focusedBorder: OutlineInputBorder(
                           borderSide:
                               BorderSide(color: Color(0xfff02e65), width: 2.0),
                           borderRadius: BorderRadius.all(Radius.circular(20.0)),
                         ),
                       ),
-                      onChanged: (value) {
-                        password = value;
-                      },
                     ),
                   ],
                 ),
@@ -150,24 +150,22 @@ class _CreateAccountState extends State<CreateAccount> {
                       setState(() {
                         showSpinner = true;
                       });
-                      /*try {
-                        final newUser =
-                            await _auth.createUserWithEmailAndPassword(
-                                email: email, password: password);
-                        if (newUser != null) {
+                      try {
+                        AuthState state =
+                            Provider.of<AuthState>(context, listen: false);
+                        state.createAccount(email, password);
+                        if (state != null) {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SuccessScreen()));
                         }
-
                         setState(() {
                           showSpinner = false;
                         });
                       } catch (e) {
                         print(e);
-                      }*/
-                      // Add login code
+                      }
                     },
                   ),
                 ),

@@ -27,11 +27,10 @@ class _SuccessScreenState extends State<SuccessScreen> {
     super.dispose();
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xff251F34),
+      backgroundColor: Color(0xffffffff),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -54,22 +53,22 @@ class _SuccessScreenState extends State<SuccessScreen> {
           ),
           Padding(
             padding: const EdgeInsets.all(12.0),
-            child: Text('Congratulations,',
+            child: Text(
+              'Congratulations,',
               style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xfff02e65),
                   fontWeight: FontWeight.w600,
-                  fontSize: 27
-              ),
+                  fontSize: 27),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Text('You have logged in.',
+            child: Text(
+              'You have logged in.',
               style: TextStyle(
-                  color: Colors.white,
+                  color: Color(0xfff02e65),
                   fontWeight: FontWeight.w600,
-                  fontSize: 23
-              ),
+                  fontSize: 23),
             ),
           ),
           SizedBox(
