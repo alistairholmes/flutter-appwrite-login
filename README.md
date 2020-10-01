@@ -7,9 +7,11 @@ A starter template to get you up and running with Appwrite E-mail Authentication
 Create Account Screen | Login Screen | Success Screen
 ------------ | -------------|--------------
 ![createaccount](https://user-images.githubusercontent.com/22801227/94818329-49394a80-03fe-11eb-9239-9a206b88cf85.png) | ![login](https://user-images.githubusercontent.com/22801227/94818326-48a0b400-03fe-11eb-83d6-738297e42ea4.png) | ![success](https://user-images.githubusercontent.com/22801227/94818314-450d2d00-03fe-11eb-8ecb-a2d63599aa5d.png)
+
 # Credits
 
 * [Appwrite](https://appwrite.io/)
+* [Lohanidamodar](https://github.com/lohanidamodar/flutter_appwrite)
 * [Poppins Font](https://fonts.google.com/specimen/Poppins?query=popp)
 * [Images](https://undraw.co/illustrations)
 * [flutter_svg](https://pub.dev/packages/flutter_svg)
