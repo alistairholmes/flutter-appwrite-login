@@ -1,26 +1,25 @@
-# Flutter Login Kit
+# Flutter Appwrite Login Template
 
-A starter template to get you up and running with firebase user authentication
+A starter template to get you up and running with Appwrite E-mail Authentication
 
 # Screenshots
 
 Create Account Screen | Login Screen | Success Screen
 ------------ | -------------|--------------
-![screener_1587918535672](https://user-images.githubusercontent.com/22801227/80344896-9706c100-8868-11ea-8b6a-55565d202db3.png) | ![screener_1587918517481](https://user-images.githubusercontent.com/22801227/80344906-9a01b180-8868-11ea-9139-96fa430ccdbc.png) | ![screener_1587972238849](https://user-images.githubusercontent.com/22801227/80345075-da612f80-8868-11ea-8fa1-d415d82ead1e.png)
-
+![Screenshot_1601555145](https://user-images.githubusercontent.com/22801227/94816028-84864a00-03fb-11eb-9028-9a0837455a78.png)
+ | ![Screenshot_1601555175](https://user-images.githubusercontent.com/22801227/94816125-a5e73600-03fb-11eb-9e96-9daec659535c.png)
+ | ![Screenshot_1601555217](https://user-images.githubusercontent.com/22801227/94815917-5dc81380-03fb-11eb-8fdf-d7d575e60078.png)
 # Credits
 
-* [Firebase Auth](https://pub.dev/packages/firebase_auth)
-* [Icons](https://shape.so/)
+* [Appwrite](https://appwrite.io/)
 * [Poppins Font](https://fonts.google.com/specimen/Poppins?query=popp)
-* [Illustrations](https://undraw.co/illustrations)
+* [Images](https://undraw.co/illustrations)
 * [flutter_svg](https://pub.dev/packages/flutter_svg)
 * [Confetti](https://pub.dev/packages/confetti)
 
 # Developed By
 
 * Alistair Holmes 
- * [Portfolio Site](http://www.alistair.co.zw)
  * [Instagram](https://www.instagram.com/alistair.holmes/)
  * [Twitter](https://twitter.com/alistairholmes_)
  * [LinkedIN](https://www.linkedin.com/in/alistairholmes/)
@@ -28,9 +27,9 @@ Create Account Screen | Login Screen | Success Screen
 
 ## Getting Started
 
-Add Firebase to your Flutter App
+Add Appwrite to your Flutter App
 
-- [Take advantage of Firebase by adding it to your Flutter app](https://firebase.google.com/docs/flutter/setup)
+- [Take advantage of Appwrite by adding it to your Flutter app](https://appwrite.io/docs/getting-started-for-flutter)
 
 A few resources to get you started if this is your first Flutter project:
 
