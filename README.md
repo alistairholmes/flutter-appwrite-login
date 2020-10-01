@@ -6,9 +6,9 @@ A starter template to get you up and running with Appwrite E-mail Authentication
 
 Create Account Screen | Login Screen | Success Screen
 ------------ | -------------|--------------
-![Screenshot_1601555145](https://user-images.githubusercontent.com/22801227/94816028-84864a00-03fb-11eb-9028-9a0837455a78.png)
- | ![Screenshot_1601555175](https://user-images.githubusercontent.com/22801227/94816125-a5e73600-03fb-11eb-9e96-9daec659535c.png)
- | ![Screenshot_1601555217](https://user-images.githubusercontent.com/22801227/94815917-5dc81380-03fb-11eb-8fdf-d7d575e60078.png)
+![createaccount](https://user-images.githubusercontent.com/22801227/94818329-49394a80-03fe-11eb-9239-9a206b88cf85.png)
+ | ![login](https://user-images.githubusercontent.com/22801227/94818326-48a0b400-03fe-11eb-83d6-738297e42ea4.png)
+ | ![success](https://user-images.githubusercontent.com/22801227/94818314-450d2d00-03fe-11eb-8ecb-a2d63599aa5d.png)
 # Credits
 
 * [Appwrite](https://appwrite.io/)
